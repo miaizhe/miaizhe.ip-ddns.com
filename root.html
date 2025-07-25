@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="cee139bb-1808-4660-84f3-5202587a05cf"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术文章 | 视频教程</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --text-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            background: #f5f5f5;
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 文章头部 */
+        .article-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        /* 视频播放器 */
+        .video-container {
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            margin: 2rem 0;
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+
+        #article-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 评论系统 */
+        .comments-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .comment-form {
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        .comment-list {
+            margin-top: 2rem;
+        }
+
+        .comment-item {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .comment-time {
+            color: #666;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+        }
+
+        .comment-content {
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 文章头部 -->
+        <header class="article-header">
+            <h1>手机root教程</h1>
+            <div class="article-meta">
+                <span>作者：技术达人</span> |
+                <span>发布日期：2023-10-20</span> |
+            </div>
+        </header>
+
+        <!-- 视频播放器 -->
+        <div class="video-container">
+            <video id="article-video" controls poster="thumbnail.jpg">
+                <source src="video/1.mp4" type="video/mp4">
+                <source src="video.webm" type="video/webm">
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+
+
+        <!-- 文章内容 -->
+        <article>
+            <p>在这篇文章中，我们将给手机root权限...</p>
+            <!-- 更多文章内容 -->
+        </article>
+    </div>
+
+    <script>
+    // 视频控制
+    const video = document.getElementById('article-video');
+    // 可以在此处添加自定义视频控制逻辑
+    </script>
+</body>
+<body>
+    <div class="giscus"></div>
+    <script src="https://giscus.app/client.js"
+        data-repo="miaizhe/miaizhe.top"
+        data-repo-id="R_kgDOPEVEXg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOPEVEXs4CtWy9"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+    </style>
+    <style>
+        /* Hide the default system cursor */
+        body {
+            cursor: none;  /* Hide the default cursor */
+        }
+
+        /* Custom Cursor styling */
+        .custom-cursor {
+            position: absolute;
+            pointer-events: none;
+            width: 40px;  /* Increase the size of the cursor */
+            height: 40px;  /* Increase the size of the cursor */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            z-index: 10000;
+            opacity: 0.9;  /* Make the cursor a bit more opaque */
+            transition: transform 0.1s ease-out, opacity 0.3s ease;  /* Smooth transition */
+            border: 3px solid rgba(255, 105, 180, 0.8); /* Add a soft border */
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);  /* Add a shadow to make it stand out */
+        }
+
+        /* Mouse trail styling */
+        .trail {
+            position: absolute;
+            pointer-events: none;
+            width: 15px;  /* Larger trail */
+            height: 15px;  /* Larger trail */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.6;  /* Semi-transparent trail */
+            z-index: 9999;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <script>
+        // Create and append trail elements
+        function createTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            document.body.appendChild(trail);
+            trail.style.left = x - 10 + 'px';  // Adjust position for trailing effect
+            trail.style.top = y - 10 + 'px';
+
+            // Remove trail after animation ends
+            setTimeout(() => {
+                trail.remove();
+            }, 300);  // Adjust to control how long the trail lasts
+        }
+
+        // Update cursor position and create trails
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            // Move the custom cursor
+            cursor.style.left = mouseX - 24 + 'px';  // Center the cursor
+            cursor.style.top = mouseY - 24 + 'px';  // Center the cursor
+
+            // Create a new trail
+            createTrail(mouseX, mouseY);
+        });
+
+        // Adjust the cursor size and behavior as per your requirements
+        // Add any additional customizations or animations here
+    </script>
+</body>
+</body>
+</html>

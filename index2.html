@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="cee139bb-1808-4660-84f3-5202587a05cf"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>miaizhe技术资源库 | Tech Resource Hub</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f5f6fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+            url('https://www.loliapi.com/acg') center/cover;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: var(--primary-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 搜索框样式 */
+        .search-input {
+            padding: 0.8rem;
+            width: 700px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* 页面内容容器 */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            padding-bottom: 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* 资源卡片样式 */
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px); /* 卡片悬浮效果 */
+        }
+
+        /* 获取资源按钮 */
+        .download-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0.8rem;
+            right: 1rem;
+            z-index: 1;
+        }
+
+        /* 美化链接 */
+        a {
+            text-decoration: none;   /* 去掉下划线 */
+            color: var(--primary-color); /* 设置自定义的链接颜色 */
+            transition: color 0.3s, transform 0.3s; /* 添加平滑的过渡效果 */
+        }
+
+        a:hover {
+            color: var(--accent-color);  /* 悬停时改变链接的颜色 */
+            transform: scale(1.05);  /* 添加轻微的放大效果 */
+        }
+
+        /* 样式优化：按钮、分类卡片等 */
+        .category-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            width: 180px;
+            transition: transform 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .category-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+        }
+
+        .category-card p {
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="https://ftyfty.miaizhe.ip-ddns.com">技术资源库</a></li>
+            <div>
+                <a href="https://blog.miaizhe.ip-ddns.com/index2.html">首页</a>
+                <a href="https://ftyfty.miaizhe.ip-ddns.com">资源</a>
+                <a href="https://github.com/miaizhe">关于</a>
+                <a href="https://blog.miaizhe.ip-ddns.com/fl/">分类</a>
+            </div>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>发现优质技术资源</h1>
+        <p>收集整理最新技术文档、开发工具和优质教程</p>
+        <!-- 搜索框 -->
+        <form action="javascript:void(0);">
+            <input type="search" id="searchInput" placeholder="搜索资源..." oninput="searchResources()" class="search-input">
+        </form>
+    </header>
+
+    <div class="container">
+        <div class="resource-card">
+            <span class="resource-category">手机平板</span>
+            <h4>手机平板教程</h4>
+            <p><a href="https://blog.miaizhe.ip-ddns.com/root.html">最新手机平板教程(root,kvm,lxc...)</a></p>
+            <a href="https://ftyfty.miaizhe.ip-ddns.com"><button class="download-btn">获取资源</button></a>
+        </div>
+
+        <div class="resource-card">
+            <span class="resource-category">前端</span>
+            <h3>Node.js最佳实践</h3>
+            <a href="https://ftyfty.miaizhe.ip-ddns.com"><button class="download-btn">获取资源</button></a>
+        </div>
+
+        <div class="resource-card">
+            <span class="resource-category">数据库</span>
+            <h3>Redis实战手册</h3>
+            <p>Redis从入门到实战的完整教程，包含常见使用场景解析。</p>
+            <a href="https://ftyfty.miaizhe.ip-ddns.com"><button class="download-btn">获取资源</button></a>
+        </div>
+    </div>
+
+    <footer class="footer" style="background: var(--primary-color); color: white; text-align: center; padding: 0.5rem; margin-top: 2rem;">
+        <p>&copy; 2023 技术资源库. All rights reserved.</p>
+        <p>contact@techresources.com</p>
+    </footer>
+    <style>
+        /* Hide the default system cursor */
+        body {
+            cursor: none;  /* Hide the default cursor */
+        }
+
+        /* Custom Cursor styling */
+        .custom-cursor {
+            position: absolute;
+            pointer-events: none;
+            width: 48px;  /* Increase the size of the cursor */
+            height: 48px;  /* Increase the size of the cursor */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            z-index: 10000;
+            opacity: 0.9;  /* Make the cursor a bit more opaque */
+            transition: transform 0.1s ease-out, opacity 0.3s ease;  /* Smooth transition */
+            border: 3px solid rgba(255, 105, 180, 0.8); /* Add a soft border */
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);  /* Add a shadow to make it stand out */
+        }
+
+        /* Mouse trail styling */
+        .trail {
+            position: absolute;
+            pointer-events: none;
+            width: 20px;  /* Larger trail */
+            height: 20px;  /* Larger trail */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.6;  /* Semi-transparent trail */
+            z-index: 9999;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <script>
+        // Create and append trail elements
+        function createTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            document.body.appendChild(trail);
+            trail.style.left = x - 10 + 'px';  // Adjust position for trailing effect
+            trail.style.top = y - 10 + 'px';
+
+            // Remove trail after animation ends
+            setTimeout(() => {
+                trail.remove();
+            }, 300);  // Adjust to control how long the trail lasts
+        }
+
+        // Update cursor position and create trails
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            // Move the custom cursor
+            cursor.style.left = mouseX - 24 + 'px';  // Center the cursor
+            cursor.style.top = mouseY - 24 + 'px';  // Center the cursor
+
+            // Create a new trail
+            createTrail(mouseX, mouseY);
+        });
+
+        // Adjust the cursor size and behavior as per your requirements
+        // Add any additional customizations or animations here
+    </script>
+</body>
+</body>
+</body>
+</html>

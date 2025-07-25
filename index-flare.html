@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="cee139bb-1808-4660-84f3-5202587a05cf"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turnstile 验证页面</title>
+  <style>
+    /* Flex 居中布局 */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('https://www.loliapi.com/acg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+    .stars {
+      position: absolute;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/old-wall.png');
+      animation: moveStars 100s linear infinite;
+      z-index: -1;
+    }
+    @keyframes moveStars {
+      0% { background-position: 0 0; }
+      100% { background-position: -1000px 1000px; }
+    }
+    .main {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 320px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .captcha-title {
+      font-size: 28px;
+      color: #ff8bca;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+    .anime-style {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+    }
+    .anime-gif {
+      width: 120px;
+      height: 120px;
+      margin-top: 20px;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .btn-submit {
+      margin-top: 25px;
+      background-color: #ff7eb9;
+      color: #fff;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .btn-submit:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255,99,131,0.6);
+    }
+    /* Turnstile 容器下移 */
+    #turnstile-container {
+      margin-top: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+
+  <div class="main">
+    <h2 class="captcha-title">请完成验证</h2>
+
+    <!-- 显式渲染容器 -->
+    <div id="turnstile-container"></div>
+
+    <button class="btn-submit" onclick="submitForm()">提交</button>
+
+    <p class="anime-style">完成验证后，你将进入神秘的知识世界！</p>
+    <img class="anime-gif" src="./gif/2.gif" alt="Anime GIF">
+  </div>
+
+  <script>
+    // 验证成功后储存 token
+    let cfToken = '';
+
+    // Turnstile 回调
+    function turnstileSuccess(token) {
+      cfToken = token;
+    }
+
+    // 页面加载完毕后显式渲染 Turnstile
+    window.onload = function() {
+      if (typeof turnstile === 'undefined') {
+        console.error('Turnstile 脚本未加载！');
+        return;
+      }
+      turnstile.render('#turnstile-container', {
+        sitekey: '0x4AAAAAABmMeVGryAUv1nUv',   // 替换为您的 sitekey
+        callback: turnstileSuccess,
+        'error-callback': () => alert('验证组件加载失败，请重试'),
+        theme: 'light',
+      });
+    };
+
+    // 提交按钮
+    function submitForm() {
+      if (!cfToken) {
+        alert('请完成验证！');
+        return;
+      }
+      alert('验证成功！正在跳转...');
+      localStorage.setItem('aicheck', 'true');
+      window.location.href = 'https://blog.miaizhe.ip-ddns.com/index2.html';
+    }
+  </script>
+
+  <!-- 显式渲染需要加 ?render=explicit -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+  <h4 style="position:absolute;bottom:10px;font-size:14px;">如果验证无法通过或没有反应，请关闭浏览器扩展</h4>
+    <style>
+        /* Hide the default system cursor */
+        body {
+            cursor: none;  /* Hide the default cursor */
+        }
+
+        /* Custom Cursor styling */
+        .custom-cursor {
+            position: absolute;
+            pointer-events: none;
+            width: 40px;  /* Increase the size of the cursor */
+            height: 40px;  /* Increase the size of the cursor */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            z-index: 10000;
+            opacity: 0.9;  /* Make the cursor a bit more opaque */
+            transition: transform 0.1s ease-out, opacity 0.3s ease;  /* Smooth transition */
+            border: 3px solid rgba(255, 105, 180, 0.8); /* Add a soft border */
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);  /* Add a shadow to make it stand out */
+        }
+
+        /* Mouse trail styling */
+        .trail {
+            position: absolute;
+            pointer-events: none;
+            width: 15px;  /* Larger trail */
+            height: 15px;  /* Larger trail */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.6;  /* Semi-transparent trail */
+            z-index: 9999;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+    </style>
+</head>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <script>
+        // Create and append trail elements
+        function createTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            document.body.appendChild(trail);
+            trail.style.left = x - 10 + 'px';  // Adjust position for trailing effect
+            trail.style.top = y - 10 + 'px';
+
+            // Remove trail after animation ends
+            setTimeout(() => {
+                trail.remove();
+            }, 300);  // Adjust to control how long the trail lasts
+        }
+
+        // Update cursor position and create trails
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            // Move the custom cursor
+            cursor.style.left = mouseX - 24 + 'px';  // Center the cursor
+            cursor.style.top = mouseY - 24 + 'px';  // Center the cursor
+
+            // Create a new trail
+            createTrail(mouseX, mouseY);
+        });
+
+        // Adjust the cursor size and behavior as per your requirements
+        // Add any additional customizations or animations here
+    </script>
+</body>
+</html>

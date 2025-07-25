@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分类资源库 | Tech Resource Hub</title>
+    <style>
+        /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e67e22;
+        }
+
+        body {
+            line-height: 1.6;
+            background-color: #f5f6fa;
+        }
+
+        /* 头部样式 */
+        header {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
+                        url('https://www.loliapi.com/acg') center/cover;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            min-height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 导航栏 */
+        nav {
+            background: var(--primary-color);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* 分类容器 */
+        .category-container {
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .category-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+            width: 150px;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .category-card p {
+            color: #7f8c8d;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 资源卡片 */
+        .resource-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-category {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .download-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .category-container {
+                flex-direction: column;
+            }
+
+            .resource-card {
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="https://ftyfty.miaizhe.ip-ddns.com">技术资源库</a></li>
+            <div>
+                <a href="https://blog.miaizhe.ip-ddns.com/index2.html">首页</a>
+                <a href="https://ftyfty.miaizhe.ip-ddns.com">资源</a>
+                <a href="https://github.com/miaizhe">关于</a>
+                <a href="https://blog.miaizhe.ip-ddns.com/fl/">分类</a>
+            </div>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>发现优质技术资源</h1>
+        <p>收集整理最新技术文档、开发工具和优质教程</p>
+    </header>
+
+    <!-- 分类选择区域 -->
+    <div class="category-container">
+        <div class="category-card" onclick="showCategory('frontend')">
+            <h3>手机平板</h3>
+        </div>
+        <div class="category-card" onclick="showCategory('backend')">
+            <h3>服务器应用</h3>
+        </div>
+        <div class="category-card" onclick="showCategory('database')">
+            <h3>网络资源</h3>
+        </div>
+    </div>
+
+    <div class="container" id="resourceContainer">
+        <!-- 默认显示所有资源卡片 -->
+        <h2>热门资源</h2>
+
+        <div class="resource-card frontend">
+            <span class="resource-category">前端开发</span>
+            <h3>手机平板教程</h3>
+            <p><a href="https://blog.miaizhe.ip-ddns.com/root.html">最新手机平板教程(root,kvm,lxc...)</a></p>
+            <a href="https://ftyfty.miaizhe.ip-ddns.com"><button class="download-btn">获取资源</button></a>
+        </div>
+
+        <div class="resource-card backend">
+            <span class="resource-category">后端开发</span>
+            <h3>Node.js最佳实践</h3>
+            <p><a href="./fl/">Node.js教程</a></p>
+            <a href="https://ftyfty.miaizhe.ip-ddns.com"><button class="download-btn">获取资源</button></a>
+        </div>
+
+        <div class="resource-card database">
+            <span class="resource-category">数据库</span>
+            <h3>Redis实战手册</h3>
+            <p>Redis从入门到实战的完整教程，包含常见使用场景解析。</p>
+            <a href="https://ftyfty.miaizhe.ip-ddns.com"><button class="download-btn">获取资源</button></a>
+        </div>
+    </div>
+
+    <footer style="background: var(--primary-color); color: white; text-align: center; padding: 1rem; margin-top: 2rem;">
+        <p>&copy; 2023 技术资源库. All rights reserved.</p>
+        <p>contact@techresources.com</p>
+    </footer>
+
+    <script>
+        // 显示所选分类的资源
+        function showCategory(category) {
+            const allCards = document.querySelectorAll('.resource-card');
+            allCards.forEach(card => {
+                if (card.classList.contains(category)) {
+                    card.style.display = 'block'; // 显示匹配的分类
+                } else {
+                    card.style.display = 'none';  // 隐藏不匹配的分类
+                }
+            });
+        }
+
+        // 默认显示所有资源
+        window.onload = function() {
+            showCategory('frontend');
+            showCategory('backend');
+            showCategory('database');
+        };
+    </script>
+
+</body>
+</html>

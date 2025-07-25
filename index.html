@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="cee139bb-1808-4660-84f3-5202587a05cf"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reCAPTCHA验证页面</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        .main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 350px;
+            background-color: #fff;
+            text-align: center;
+            border-radius: 20px;
+        }
+    </style>
+    <style>
+        body {
+            background: url('https://www.loliapi.com/acg') no-repeat center center fixed;  /* 动态二次元背景 */
+            background-size: cover;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://www.transparenttextures.com/patterns/old-wall.png'); /* 动态背景 */
+            animation: moveStars 100s linear infinite;
+            z-index: -1; /* 让背景在最底层 */
+        }
+
+        @keyframes moveStars {
+            0% { background-position: 0 0; }
+            100% { background-position: -1000px 1000px; }
+        }
+
+        .recaptcha-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            display: inline-block;
+            margin: 20px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .captcha-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ff8bca;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn-submit {
+            background-color: #ff7eb9;  /* 可爱粉色按钮 */
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #ff5291;
+            transform: scale(1.1);  /* 按钮悬浮时放大 */
+            box-shadow: 0 0 10px rgba(255, 99, 131, 0.6); /* 添加阴影效果 */
+        }
+
+        .anime-style {
+            font-family: 'Comic Sans MS', cursive;
+            color: #fff;
+            margin-top: 30px;
+            font-size: 18px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+        }
+
+        .anime-gif {
+            width: 120px;
+            height: 120px;
+            margin-top: 20px;
+            animation: bounce 1.5s infinite; /* GIF跳动效果 */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="recaptcha-container">
+        <h2 class="captcha-title">请完成验证</h2>
+        <div class="g-recaptcha" data-sitekey="6Lc7oowrAAAAAMlwTc_3WOKl4Tk-EyuqYEfZUaje"></div>
+        <br>
+            <button class="btn-submit" onclick="submitForm()">提交</button>
+        <p style="background-color:rgb(0,255,255) class="anime-style">完成reCAPTCHA验证后，你将进入神秘的知识世界！</p>
+        <img class="anime-gif" src="./gif/2.gif" alt="Anime GIF"> <!-- 可爱的二次元动图 -->
+    </div>
+    <script>
+        function submitForm() {
+            var response = grecaptcha.getResponse();
+            if (response.length === 0) {
+                var aicheck = "false"
+                alert("请完成验证！");
+                return;
+            }else{
+                var aicheck = "true";
+            }
+
+            // 模拟表单提交（实际应用中需要后台验证）
+            alert("验证成功！将跳转...");
+            localStorage.setItem('aicheck', 'true');
+            window.location.href = "https://blog.miaizhe.ip-ddns.com/index2.html"; // 验证通过后跳转的页面
+        }
+    </script>
+    <a href="https://blog.miaizhe.ip-ddns.com/index-flare.html"><h4>无法验证？点击前往cloudflare验证</h4></a>
+    <style>
+        /* Hide the default system cursor */
+        body {
+            cursor: none;  /* Hide the default cursor */
+        }
+
+        /* Custom Cursor styling */
+        .custom-cursor {
+            position: absolute;
+            pointer-events: none;
+            width: 40px;  /* Increase the size of the cursor */
+            height: 40px;  /* Increase the size of the cursor */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            z-index: 10000;
+            opacity: 0.9;  /* Make the cursor a bit more opaque */
+            transition: transform 0.1s ease-out, opacity 0.3s ease;  /* Smooth transition */
+            border: 3px solid rgba(255, 105, 180, 0.8); /* Add a soft border */
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.8);  /* Add a shadow to make it stand out */
+        }
+
+        /* Mouse trail styling */
+        .trail {
+            position: absolute;
+            pointer-events: none;
+            width: 15px;  /* Larger trail */
+            height: 15px;  /* Larger trail */
+            background: url('https://blog.miaizhe.ip-ddns.com/gif/headimg_dl.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%;
+            opacity: 0.6;  /* Semi-transparent trail */
+            z-index: 9999;
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Custom cursor element -->
+    <div class="custom-cursor" id="cursor"></div>
+
+    <script>
+        // Create and append trail elements
+        function createTrail(x, y) {
+            const trail = document.createElement('div');
+            trail.classList.add('trail');
+            document.body.appendChild(trail);
+            trail.style.left = x - 10 + 'px';  // Adjust position for trailing effect
+            trail.style.top = y - 10 + 'px';
+
+            // Remove trail after animation ends
+            setTimeout(() => {
+                trail.remove();
+            }, 300);  // Adjust to control how long the trail lasts
+        }
+
+        // Update cursor position and create trails
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+
+            // Move the custom cursor
+            cursor.style.left = mouseX - 24 + 'px';  // Center the cursor
+            cursor.style.top = mouseY - 24 + 'px';  // Center the cursor
+
+            // Create a new trail
+            createTrail(mouseX, mouseY);
+        });
+
+        // Adjust the cursor size and behavior as per your requirements
+        // Add any additional customizations or animations here
+    </script>
+</body>
+</html>

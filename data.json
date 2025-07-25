@@ -1,0 +1,11 @@
+{
+    "resources": [
+        {
+            "id": 5,
+            "title": "Docker入门教程",
+            "category": "devops",
+            "content": "容器化技术基础与实践",
+            "comments": []
+        }
+    ]
+}
